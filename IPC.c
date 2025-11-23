@@ -38,5 +38,5 @@ int main(){
         system("clear || cls");
     }
 
-    return main();
+    return 0;
 }
