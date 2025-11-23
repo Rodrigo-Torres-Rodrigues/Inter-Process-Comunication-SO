@@ -3,7 +3,9 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/types.h>
-#include <unistd.h>
+#include <pthread.h>
+#include <semaphore.h>
+#include <sys/wait.h>
 
 //mecanismo de pipe (pipe padrão unidirecional).
 int pipeIPC() {
@@ -43,6 +45,10 @@ int pipeIPC() {
 
         write(fd[1], mensagemUser, strlen(mensagemUser) + 1);  // envia o texto ao filho
         close(fd[1]);       // fecha extremidade de escrita
+
+        //Processo pai espera até o filho terminar.
+
+        wait(NULL);
 
     } else {
         // PROCESSO FILHO
