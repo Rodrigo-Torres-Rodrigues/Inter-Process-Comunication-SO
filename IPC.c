@@ -11,6 +11,7 @@ int main(){
     printf("Digite o número correspondente:\n");
     printf("0 - Sair do programa\n");
     printf("1 - Pipes\n");
+    printf("2 - Semáforos");
 
     scanf("%d", &num);
     getchar();
@@ -27,6 +28,9 @@ int main(){
         pipeIPC();
         break;
 
+        case 2:
+        semaforoSimulacao();
+        break;
         default:
         printf("\nVocê digitou uma opção inexistente!!\n");
         getchar();
